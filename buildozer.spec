@@ -44,10 +44,10 @@ version = 0.1
 # comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,kivy,plyer
 
-# (str) Version of Python to compile
-osx.python_version = 3
-# (str) Key incompatible version safeguard
-android.python_version = 3.10
+# (str) python-for-android git clone to use (specify branch, tag, or commit)
+p4a.branch = release-2024.01
+# Ou se preferir usar a master antiga estável:
+# p4a.branch = master
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -340,7 +340,7 @@ android.allow_backup = True
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
+p4a.branch = release-2024.01
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
@@ -369,7 +369,7 @@ android.allow_backup = True
 #p4a.setup_py = false
 
 # (str) extra command line arguments to pass when invoking pythonforandroid.toolchain
-#p4a.extra_args =
+p4a.extra_args = --python-version=3.10
 
 
 
@@ -448,55 +448,3 @@ warn_on_root = 1
 
 # (str) Path to build output (i.e. .apk, .aab, .ipa) storage
 # bin_dir = ./bin
-
-#-----------------------------------------------------------------------------
-#   Notes about using this file:
-#
-#   Buildozer uses a variant of Python's ConfigSpec to read this file.
-#   For the basic syntax, including interpolations, see
-#       https://docs.python.org/3/library/configparser.html#supported-ini-file-structure
-#
-#   Warning: Comments cannot be used "inline" - i.e.
-#       [app]
-#       title = My Application # This is not a comment, it is part of the title.
-#
-#   Warning: Indented text is treated as a multiline string - i.e.
-#       [app]
-#       title = My Application
-#          package.name = myapp # This is all part of the title.
-#
-#   Buildozer's .spec files have some additional features:
-#
-#   Buildozer supports lists - i.e.
-#       [app]
-#       source.include_exts = py,png,jpg
-#       #                     ^ This is a list.
-#
-#       [app:source.include_exts]
-#       py
-#       png
-#       jpg
-#       # ^ This is an alternative syntax for a list.
-#
-#   Buildozer's option names are case-sensitive, unlike most .ini files.
-#
-#   Buildozer supports overriding options through environment variables.
-#   Name an environment variable as SECTION_OPTION to override a value in a .spec
-#   file.
-#
-#   Buildozer support overriding options through profiles.
-#   For example, you want to deploy a demo version of your application without
-#   HD content. You could first change the title to add "(demo)" in the name
-#   and extend the excluded directories to remove the HD content.
-#
-#       [app@demo]
-#       title = My Application (demo)
-#
-#       [app:source.exclude_patterns@demo]
-#       images/hd/*
-#
-#   Then, invoke the command line with the "demo" profile:
-#
-#        buildozer --profile demo android debug
-#
-#   Environment variable overrides have priority over profile overrides.
