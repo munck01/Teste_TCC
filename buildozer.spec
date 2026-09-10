@@ -72,7 +72,7 @@ p4a.bootstrap = sdl2
 # Comente ou apague a linha abaixo para usar o branch padrão/recente
 # p4a.branch = release-2024.01
 
-# Python utilizado dentro do APK
+# (str) Version of python to compile, in the format of x.y.z
 p4a.extra_args = --python-version=3.10
 
 # -----------------------------------------------------------------------------
