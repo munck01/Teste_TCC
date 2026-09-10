@@ -68,11 +68,9 @@ p4a.bootstrap = sdl2
 # -----------------------------------------------------------------------------
 
 # Python-for-Android
-p4a.url = https://github.com/kivy/python-for-android.git
+# p4a.url = https://github.com/kivy/python-for-android.git
 # Comente ou apague a linha abaixo para usar o branch padrão/recente
 # p4a.branch = release-2024.01
-
-p4a.branch = release-2024.01
 
 # Python utilizado dentro do APK
 p4a.extra_args = --python-version=3.10
