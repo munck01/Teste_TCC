@@ -46,6 +46,7 @@ jobs:
           autoconf \
           automake \
           libtool \
+          libltdl-dev \
           pkg-config
 
     - name: ⚙️ Instalar Buildozer e Cython
