@@ -67,10 +67,10 @@ p4a.bootstrap = sdl2
 # Python-for-Android
 # -----------------------------------------------------------------------------
 
-# Fixar uma versão conhecida do python-for-android.
-#
-# Isso evita que o build pegue mudanças inesperadas do branch master.
+# Python-for-Android
 p4a.url = https://github.com/kivy/python-for-android.git
+# Comente ou apague a linha abaixo para usar o branch padrão/recente
+# p4a.branch = release-2024.01
 
 p4a.branch = release-2024.01
 
