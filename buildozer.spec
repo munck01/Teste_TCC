@@ -6,10 +6,10 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = Teste Acelerometro
 
 # (str) Package name
-package.name = myapp
+package.name = teste_acelerometro
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
@@ -109,7 +109,7 @@ fullscreen = 0
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 33
+android.api = 33
 
 # (int) Minimum API your APK / AAB will support.
 #android.minapi = 24
@@ -141,7 +141,7 @@ fullscreen = 0
 # agreements. This is intended for automation only. If set to False,
 # the default, you will be shown the license when first running
 # buildozer.
-# android.accept_sdk_license = False
+android.accept_sdk_license = True
 
 # (str) Android entry point, default is ok for Kivy-based app
 #android.entrypoint = org.kivy.android.PythonActivity
