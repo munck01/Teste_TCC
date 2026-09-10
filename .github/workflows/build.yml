@@ -1,0 +1,25 @@
+name: 📱 Build Kivy APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Baixar código do repositório
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Compilar APK com Buildozer
+      uses: ArtemSBulgakov/buildozer-action@v1
+      id: buildozer
+      with:
+        command: buildozer android debug
+
+    - name: 📤 Enviar APK gerado para download
+      uses: actions/upload-artifact@v4
+      with:
+        name: pacote-apk
+        path: bin/*.apk
