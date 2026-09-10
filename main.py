@@ -2,10 +2,8 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 import math
-import random
 import sys
 
-# Verifica se estamos rodando no Android
 PLATAFORMA_ANDROID = sys.platform == 'android'
 
 if PLATAFORMA_ANDROID:
@@ -26,11 +24,10 @@ class AccelerometerScreen(BoxLayout):
                 self.sensor_ativo = True
                 self.ids.lbl_origem.text = "Status: Ativo (Sensor Físico)"
             except Exception as e:
-                self.ids.lbl_origem.text = f"Status: Erro ao iniciar sensor"
+                self.ids.lbl_origem.text = "Status: Erro ao iniciar sensor"
         else:
-            # Modo de simulação para testes no Windows
-            Clock.schedule_interval(self.simular_aceleracao, 1.0 / 20)
-            self.ids.lbl_origem.text = "Status: Simulação (Ambiente Windows)"
+            self.ids.lbl_origem.text = "Status: Acelerômetro requer Android"
+            self.ids.lbl_dados.text = "Execute em um dispositivo físico"
 
     def get_acceleration(self, dt):
         if self.sensor_ativo:
@@ -43,18 +40,9 @@ class AccelerometerScreen(BoxLayout):
             except Exception as e:
                 self.ids.lbl_dados.text = f"Erro na leitura: {e}"
 
-    def simular_aceleracao(self, dt):
-        # Gera valores simulados variados para testes visuais no PC
-        x = random.uniform(-2.0, 2.0)
-        y = random.uniform(9.0, 10.5)
-        z = random.uniform(-1.0, 1.0)
-        self.atualizar_interface(x, y, z)
-
     def atualizar_interface(self, x, y, z):
-        # Processamento matemático do sinal (Magnitude do vetor aceleração)
         magnitude = math.sqrt(x**2 + y**2 + z**2)
         
-        # Atualiza os textos dos labels definidos no arquivo .kv
         self.ids.lbl_dados.text = (
             f"Eixo X: {x:6.2f} m/s²\n"
             f"Eixo Y: {y:6.2f} m/s²\n"
@@ -71,7 +59,6 @@ class AccelerometerScreen(BoxLayout):
 
 class AccelerometerApp(App):
     def build(self):
-        # O Kivy busca automaticamente o arquivo com o mesmo nome da classe (sem 'App')
         return AccelerometerScreen()
 
 if __name__ == '__main__':
