@@ -44,10 +44,6 @@ version = 0.1
 # comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,kivy,plyer
 
-# (str) python-for-android git clone to use (specify branch, tag, or commit)
-p4a.branch = release-2024.01
-# Ou se preferir usar a master antiga estável:
-# p4a.branch = master
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
