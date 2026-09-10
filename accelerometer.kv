@@ -1,69 +1,29 @@
-#:kivy 2.1.0
-
 <AccelerometerScreen>:
     orientation: 'vertical'
-    padding: [25, 40, 25, 40]
+    padding: 30
     spacing: 20
-    
-    # Cor de fundo padrão (Cinza escuro moderno)
-    canvas.before:
-        Color:
-            rgba: 0.08, 0.09, 0.11, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
 
-    # Título do Aplicativo
     Label:
-        text: "Monitor de Acelerômetro"
-        font_size: '24sp'
-        bold: True
+        id: lbl_origem
+        text: "Status: Inicializando..."
+        font_size: '18sp'
         size_hint_y: None
         height: '40dp'
-        color: 0.2, 0.6, 1, 1  # Azul claro
+        halign: 'center'
+        valign: 'middle'
 
-    # Caixa centralizada para exibir os dados dos eixos
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 20
-        spacing: 10
-        canvas.before:
-            Color:
-                rgba: 0.15, 0.17, 0.22, 1  # Fundo do cartão de dados
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [15,]
-
-        Label:
-            id: lbl_origem
-            text: "Status: Inicializando..."
-            font_size: '14sp'
-            color: 0.7, 0.7, 0.7, 1
-            size_hint_y: None
-            height: '30dp'
-
-        Label:
-            id: lbl_dados
-            text: "Aguardando dados..."
-            font_size: '18sp'
-            halign: 'left'
-            valign: 'middle'
-            color: 1, 1, 1, 1
-
-        Label:
-            id: lbl_magnitude
-            text: "Magnitude: -- m/s²"
-            font_size: '20sp'
-            bold: True
-            color: 0.3, 0.8, 0.4, 1  # Verde destaque
-            size_hint_y: None
-            height: '40dp'
-
-    # Rodapé institucional / Acadêmico
     Label:
-        text: "Projeto Acadêmico - Processamento de Sinal"
-        font_size: '12sp'
-        color: 0.5, 0.5, 0.5, 1
+        id: lbl_dados
+        text: "Eixo X: --\nEixo Y: --\nEixo Z: --"
+        font_size: '22sp'
+        halign: 'center'
+        valign: 'middle'
+
+    Label:
+        id: lbl_magnitude
+        text: "Magnitude: -- m/s²"
+        font_size: '20sp'
         size_hint_y: None
-        height: '30dp'
+        height: '50dp'
+        halign: 'center'
+        valign: 'middle'
