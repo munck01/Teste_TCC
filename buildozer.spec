@@ -25,7 +25,7 @@ version = 0.1
 # Dependências Python / Kivy
 # -----------------------------------------------------------------------------
 
-requirements = python3,kivy,plyer
+requirements = python311,kivy,plyer
 
 # -----------------------------------------------------------------------------
 # Interface
